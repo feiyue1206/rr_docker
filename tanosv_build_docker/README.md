@@ -22,17 +22,42 @@ docker run -it --rm --name tanosv_build_env rr_qcbuildenv_img /bin/bash
 
 docker run -it --rm -v ${dir}:/rrbuild/build --name tanosv_build_env rr_qcbuildenv_img /bin/bash
 
+docker run -it --rm -v /home/victor/Desktop/rockrobo/tanosv/build:/rrbuild/build --name tanosv_build_env rr_qcbuildenv_img /bin/bash
+
+
 # build tanosv flow
 
 1.build docker img or get img from docker hub
+
 docker build -t=rr_qcbuildenv_img .
 
 docker pull feiyue1206/rr_qcbuildenv_img:latest
 
 
 2.run docker build instruction
+
 ./docker_build.sh
 
+
+## build single module only
+
+1. run docker container 
+
+docker run -it --rm -v /home/victor/Desktop/rockrobo/tanosv/build:/rrbuild/build --name tanosv_build_env rr_qcbuildenv_img /bin/bash
+
+
+2. cmake 
+
+cd /rrbuild/build
+
+cmake -DCMAKE_TOOLCHAIN_FILE=/rrbuild/build/arm-linux-gnueabi.cmake -DRR_PROJECT=RR_PROJECT_TANOS_V .
+
+make
+
+
+3. single module build
+
+then cd to the module dir, cp and run
 
 
 
