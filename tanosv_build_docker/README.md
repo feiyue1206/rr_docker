@@ -33,6 +33,9 @@ docker build -t=rr_qcbuildenv_img .
 
 docker pull feiyue1206/rr_qcbuildenv_img:latest
 
+docker push feiyue1206/rr_qcbuildenv_img:latest
+
+
 
 2.run docker build instruction
 

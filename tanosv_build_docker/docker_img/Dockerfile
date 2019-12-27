@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     g++-arm-linux-gnueabi gcc-arm-linux-gnueabi \
     libssl-dev \
     libevent-dev \
+    libconfig++9v5 libboost-program-options-dev libboost-all-dev\
     #sqlite3 libsqlite3-dev libboost-dev \
     #emacs-nox libpq-dev mysql-client libmysqlclient-dev libhiredis-dev \
     && rm -rf /var/lib/apt/lists/* \
