@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "rr_build.sh for build rockrobo "
 echo "begin to build tanosv in docker "
 
  
