@@ -18,19 +18,25 @@ build tanos upper image, i.e. app image (including nav module)
 the following steps also work for other products, but the PRODUCT macro and architecture should be changed correctly for the destination product.
 
 Tanos-V
+
 -a=arm-linux-gnueabi -p=RR_PROJECT_TANOS_V
+
 -DCMAKE_TOOLCHAIN_FILE=${ARCH}.cmake -DRR_PROJECT=${RR_PROJECT}
 
 
 Tanos
+
 -a=arm-linux-gnueabihf -p=RR_PROJECT_TANOS
+
 -DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS
 
 
 1.  git clone build repo, and checkout develop branch 
 
 2.  submodule init and update
+
     git submodule init
+    
     git submodule update --remote
 
 3.  in build directory, git clone nav repo and checkout the branch you want
@@ -40,7 +46,9 @@ Tanos
 ### bash script
 
 5. bash with args  
+
 in build dir,
+
 buildscripts/build_all.sh -o=/home/victor/Desktop/rockrobo/tanos/build/tanos_out -t=RelWithDebInfo -v=2019122606DEV -a=arm-linux-gnueabihf -p=RR_PROJECT_TANOS -e= --cleanbuild
 
 -o should use full path, otherwis package-all.sh will fail
@@ -61,9 +69,11 @@ PRODUCT package (something like PRODUCT_V2019122606DEV.tar.gz) will be used to g
 5. cmake
 
 in an empty dir,
+
 cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS /home/victor/Desktop/rockrobo/tanos/build_nav/build
 
 build ros simulated, add --simulate
+
 cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS -DSIMULATE=True /home/victor/Desktop/rockrobo/tanos/build_nav/build
 
 then 
