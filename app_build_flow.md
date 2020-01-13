@@ -86,5 +86,6 @@ result locates at
 ## trouble shooting
 
 1. if rriot project fails, add into daemon/rriot/CMakeLists.txt
+
 add_compile_options(-std=c99)
 
