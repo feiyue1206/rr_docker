@@ -30,6 +30,12 @@ Tanos
 
 -DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS
 
+Tanos-E
+
+-a=arm-linux-gnueabihf -p=RR_PROJECT_TANOS_E
+
+-DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS_E
+
 
 1.  git clone build repo, and checkout develop branch 
 
