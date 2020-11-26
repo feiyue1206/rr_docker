@@ -17,26 +17,35 @@ build tanos upper image, i.e. app image (including nav module)
 
 the following steps also work for other products, but the PRODUCT macro and architecture should be changed correctly for the destination product.
 
-Tanos-V
 
+### products
+####Tanos-V
 -a=arm-linux-gnueabi -p=RR_PROJECT_TANOS_V
 
 -DCMAKE_TOOLCHAIN_FILE=${ARCH}.cmake -DRR_PROJECT=${RR_PROJECT}
 
 
-Tanos
+####Tanos
 
 -a=arm-linux-gnueabihf -p=RR_PROJECT_TANOS
 
 -DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS
 
-Tanos-E
 
+####Tanos-E
+RR_PROJECT_TANOS_E
 -a=arm-linux-gnueabihf -p=RR_PROJECT_TANOS_E
 
--DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabihf.cmake -DRR_PROJECT=RR_PROJECT_TANOS_E
+####Coral
+-a=aarch64-mr813-linux-gnu -p=RR_PROJECT_CORAL
+
+cmake -DCMAKE_TOOLCHAIN_FILE=../aarch64-mr813-linux-gnu.cmake -DCMAKE_BUILD_TYPE=Release -DRR_PROJECT=RR_PROJECT_CORAL ..
 
 
+buildscripts/build_all.sh -o=/home/victor/Desktop/rockrobo/coral/mr813_aarch64/build/out -t=RelWithDebInfo -v=2020200606DEV -a=aarch64-mr813-linux-gnu -p=RR_PROJECT_CORAL -e= --cleanbuild
+
+
+### steps
 1.  git clone build repo, and checkout develop branch 
 
 2.  submodule init and update
@@ -49,7 +58,7 @@ Tanos-E
 
 4.  build with bash script or instruction directly
 
-### bash script
+#### bash script
 
 5. bash with args  
 
@@ -70,7 +79,7 @@ result locates -o specified dir, the origin dir contains all apps.
 PRODUCT package (something like PRODUCT_V2019122606DEV.tar.gz) will be used to generate ota package
 
 
-### cmake instruction directly
+#### cmake instruction directly
 
 5. cmake
 

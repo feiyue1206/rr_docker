@@ -48,6 +48,8 @@ docker push feiyue1206/rr_qcbuildenv_img:latest
 
 docker run -it --rm -v /home/victor/Desktop/rockrobo/tanosv/build:/rrbuild/build --name tanosv_build_env rr_qcbuildenv_img /bin/bash
 
+docker run -it --rm -v /home/victor/Desktop/rockrobo/tanosv/build:/rrbuild/build --name tanosv_build_env2 rr_qcbuildenv_img /bin/bash
+
 
 2. cmake 
 
@@ -57,10 +59,22 @@ cmake -DCMAKE_TOOLCHAIN_FILE=/rrbuild/build/arm-linux-gnueabi.cmake -DRR_PROJECT
 
 make
 
+cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_TOOLCHAIN_FILE=/rrbuild/build/arm-linux-gnueabi.cmake -DRR_PROJECT=RR_PROJECT_TANOS_V .
+
+
+
+
+cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=${CMK_BUILD_TYPE} -DCMAKE_TOOLCHAIN_FILE=${ARCH}.cmake -DRR_PROJECT=${RR_PROJECT} ${OTHERPARAMETERS} ${TRACE_CONSOLE} ${SOURCE_DIR}
+
+cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_TOOLCHAIN_FILE=arm-linux-gnueabi.cmake -DRR_PROJECT=RR_PROJECT_TANOS_V /var/lib/jenkins/workspace/Tanos-V_EnSecureBoot_EnSelinux_FULL/build
+
 
 3. single module build
 
 then cd to the module dir, cp and run
 
 
+
+
+docker run -it --rm -v /home/victor/Desktop/rockrobo/tanosv/test_build/build:/rrbuild/build --name tanosv_build_env2 rr_qcbuildenv_img /bin/bash
 
