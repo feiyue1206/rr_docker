@@ -29,11 +29,17 @@ docker run -it --rm -v /home/victor/Desktop/rockrobo/tanosv/build:/rrbuild/build
 
 1.build docker img or get img from docker hub
 
+
+docker pull feiyue1206/rr_qcbuildenv_img:201126
+    fix libconfig++.so
+
+
 docker build -t=rr_qcbuildenv_img .
 
 docker pull feiyue1206/rr_qcbuildenv_img:latest
 
 docker push feiyue1206/rr_qcbuildenv_img:latest
+
 
 
 
